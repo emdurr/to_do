@@ -9,13 +9,18 @@
 <% end %>
 
 <h2>Priority Items:</h2>
+	<% @todo.each do |listed| %>
+		<% if listed.priority %>
+			<h3><%= link_to listed.item, todo_path(listed) %></h3>
+		<% end %>
+	<% end %>
 
 <hr />
 
 <h2>Still left to do:</h2>
 	<% @todo.each do |listed| %>
 
-		<% if listed.complete %>
+		<% if listed.complete || listed.priority == true %>
 			<h3></h3>
 		<% else %>
 			<h3><%= link_to listed.item, todo_path(listed) %></h3>

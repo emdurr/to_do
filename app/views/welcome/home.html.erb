@@ -1,12 +1,17 @@
 <h1>Welcome to your To Do List !!</h1>
-<h2>Priority Items:</h2>
+<h2>You have <%= @priority %> Priority Items still remaining:</h2>
+	<% @todo.each do |listed| %>
+		<% if listed.priority %>
+			<h3><%= listed.item %></h3>
+		<% end %>
+	<% end %>
 
 <hr />
 
 <h2>You have <%= @todo1 %> items still left to do:</h2>
 	<% @todo.each do |listed| %>
 
-		<% if listed.complete %>
+		<% if listed.complete || listed.priority == true %>
 			<h3></h3>
 		<% else %>
 			<h3><%= listed.item %></h3>
