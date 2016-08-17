@@ -1,9 +1,15 @@
 class TodosController < ApplicationController
   def index
   	@todo = Todo.all
+  	@todo1 = Todo.new
+  	# @todo2 = Todo.find(params[:id])
   end
 
   def show
+  	@todo = Todo.find(params[:id])
+  end
+
+  def completed
   	@todo = Todo.find(params[:id])
   end
 

@@ -1,7 +1,8 @@
 <h1>List Item</h1>
 <h2> <%= @todo.item %> </h2>
 <h2> <%= @todo.description %> </h2>
-<%= link_to 'Edit Item', edit_todo_path(@todo) %>
+<%= link_to 'Edit Item', edit_todo_path(@todo) %> ||
 <%= link_to 'Delete Item', todo_path(@todo), method: :delete %>
-<p></p>
+<p>Click edit to mark complete</p>
+<p> </p>
 <%= link_to 'Back', todos_path %>

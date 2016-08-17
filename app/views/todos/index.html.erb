@@ -1,9 +1,39 @@
 <h1> To Do List </h1>
-<%= link_to 'Add Item', new_todo_path %>
+<hr />
+<%= form_for @todo1 do |f| %>
+	<%= f.label :item %>
+	<%= f.text_field :item %>
+	<%= f.label :description %>
+	<%= f.text_field :description %>
+	<%= f.submit %>
+<% end %>
+
+<h2>Priority Items:</h2>
+
+<hr />
+
+<h2>Still left to do:</h2>
+	<% @todo.each do |listed| %>
+
+		<% if listed.complete %>
+			<h3></h3>
+		<% else %>
+			<h3><%= link_to listed.item, todo_path(listed) %></h3>
+		<% end %>
+	<% end %>
+<hr />
+
+<h2>Completed</h2>
 <% @todo.each do |listed| %>
 	<% if listed.complete %>
 		<h3><strike><%= link_to listed.item, todo_path(listed) %></strike></h3>
 	<% else %>
-		<h3><%= link_to listed.item, todo_path(listed) %></h3>
+		<h3></h3>
 	<% end %>
 <% end %>	
+<hr />
+
+<%= link_to 'All', todos_path %>
+<%= link_to 'Completed List', todos_path %>
+<%= link_to 'To be done List', todos_path %>
+	

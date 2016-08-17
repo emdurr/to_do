@@ -1,0 +1,9 @@
+<h1> Completed Items List </h1>
+<%= link_to 'All Items', todos_path %>
+<% @todo.each do |listed| %>
+	<% if listed.complete %>
+		<h3><%= link_to listed.item, todo_path(listed) %></h3>
+	<% else %>
+		<h3>Nothing to see here</h3>
+	<% end %>
+<% end %>	
